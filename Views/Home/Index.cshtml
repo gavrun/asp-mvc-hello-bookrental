@@ -6,3 +6,65 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+@model IEnumerable<asp_mvc_hello_bookrental.Models.BookModel>
+
+<h2>Available Books</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Year</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model.Where(b => !b.IsRented))
+        {
+            <tr>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <td>@book.Genre</td>
+                <td>@book.Year</td>
+                <td>
+                    <form asp-action="RentBook" method="post">
+                        <input type="hidden" name="id" value="@book.Id" />
+                        <button type="submit">Rent Book</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Rented Books</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Year</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model.Where(b => b.IsRented))
+        {
+            <tr>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <td>@book.Genre</td>
+                <td>@book.Year</td>
+                <td>
+                    <form asp-action="ReturnBook" method="post">
+                        <input type="hidden" name="id" value="@book.Id" />
+                        <button type="submit">Return Book</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
