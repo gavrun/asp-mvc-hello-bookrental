@@ -42,7 +42,4 @@
 
 tbd
 
-dotnet nuget
-sqllocaldb 
-dotnet ef migrations 
-dotnet ef database 
+dotnet nuget / sqllocaldb / dotnet ef migrations / dotnet ef database 
