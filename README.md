@@ -1,6 +1,5 @@
 # asp-mvc-hello-bookrental
 
----
 
 ### Technical Assignment: Web Application
 
@@ -38,7 +37,6 @@
 - **Entity Framework Core** for implementing SQL integration and data access.
 - **SQL Server Express 2019 LocalDB** for storing book data.
 
----
 
 ### Steps to build:
 
